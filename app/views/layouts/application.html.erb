@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookApp2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="header-title">
+          <span>Bookers</span>
+        </div>
+        <div class="header-lists">
+          <ul>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-home home" do %> Home<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-user users" do %> User<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-book books" do %> Books<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-log-out logout" do %> logout<% end %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div class="container">
+    <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <p class="footer-title">CopyRight Infratop.inc</p>
+      </div>
+    </footer>
+  </body>
+</html>
