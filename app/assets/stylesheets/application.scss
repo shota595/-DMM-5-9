@@ -83,3 +83,46 @@ li a {
   padding-left: 15px;
   padding-right: 15px;
 }
+.profile-edit-btn {
+  display: inline-block;
+  width: 292px;
+  height: 33px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fafafa;
+  line-height: 5px;
+  border-radius: 4px;
+}
+.profile-edit-btn:hover {
+  background-color: #ccc
+}
+.profile-table {
+  height: 36px
+}
+.log-field {
+  margin-bottom: 10px;
+}
+.actions {
+  color: #fafafa;
+}
+.login input {
+  background-color: #286090;
+  height: 33px;
+  width: 63px;
+  border-color: #204d74;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+.actions input:hover {
+  opacity: 1;
+}
+.signup input{
+  height: 33px;
+  width: 72px;
+  background-color: #449d44;
+  opacity: 0.8;
+  border-radius: 4px;
+  border-color: #398439;
+}

@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 2019_09_09_074917) do
 
   create_table "books", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
-    t.text "opinion"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_074917) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.text "introduction"
+    t.string "profile_image_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
