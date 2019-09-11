@@ -18,15 +18,15 @@
         <div class="header-lists">
           <ul>
           <% if user_signed_in? %>
-            <li><%= link_to  books_path, class:"glyphicon glyphicon-home home" do %> Home<% end %></li>
-            <li><%= link_to  users_path, class:"glyphicon glyphicon-user users" do %> User<% end %></li>
-            <li><%= link_to  books_path, class:"glyphicon glyphicon-book books" do %> Books<% end %></li>
-            <li><%= link_to  destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout" do %> logout<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-home home header-logo" do %> Home<% end %></li>
+            <li><%= link_to  users_path, class:"glyphicon glyphicon-user users header-logo" do %> User<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-book books header-logo" do %> Books<% end %></li>
+            <li><%= link_to  destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout header-logo" do %> logout<% end %></li>
           <% else %>
-            <li><%= link_to  books_path, class:"glyphicon glyphicon-home home" do %> Home<% end %></li>
-            <li><%= link_to  books_path, class:"glyphicon glyphicon-user users" do %> About<% end %></li>
-            <li><%= link_to  new_user_registration_path, class:"glyphicon glyphicon-book books" do %> SignUp<% end %></li>
-            <li><%= link_to  books_path, class:"glyphicon glyphicon-log-out logout" do %> SignIn<% end %></li>
+            <li><%= link_to  root_path, class:"glyphicon glyphicon-home home header-logo" do %> Home<% end %></li>
+            <li><%= link_to  about_path, class:"glyphicon glyphicon-user users header-logo" do %> About<% end %></li>
+            <li><%= link_to  new_user_registration_path, class:"glyphicon glyphicon-book books header-logo" do %> SignUp<% end %></li>
+            <li><%= link_to  books_path, class:"glyphicon glyphicon-log-out logout header-logo" do %> SignIn<% end %></li>
           <% end %>
           </ul>
         </div>

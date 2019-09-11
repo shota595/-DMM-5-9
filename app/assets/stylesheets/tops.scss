@@ -1,3 +1,47 @@
 // Place all the styles related to the Tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+.col-md-6 .col-xs-11 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.about-login {
+  display: block;
+  text-align: center;
+  border: 1px solid #fafafa;
+  height: 33px;
+  border-radius: 4px;
+  line-height: 30px;
+  opacity: 0.8;
+}
+.login {
+  background-color: #5bc0de;
+  border-color: #269abc;
+}
+.signup {
+  background-color: #449d44;
+  border-color: #4cae4c;
+}
+.link {
+  color: #333333;
+}
+.about-login:hover {
+  opacity: 1;
+}
+.link:hover {
+  color: #fafafa;
+  text-decoration: none;
+}
+.top-icon {
+  display: inline;
+}
