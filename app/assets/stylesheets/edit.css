@@ -22,3 +22,11 @@ label {
 .update:hover {
   opacity: 1;
 }
+
+.image-label {
+  margin-top: 10px;
+}
+.intro {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}

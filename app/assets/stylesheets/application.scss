@@ -92,11 +92,11 @@ li a {
   border: 1px solid #ccc;
   text-align: center;
   background-color: #fafafa;
-  line-height: 5px;
+  padding-top: 8px;
   border-radius: 4px;
 }
 .profile-edit-btn:hover {
-  background-color: #ccc
+  background-color: #ccc;
 }
 .profile-table {
   height: 36px
@@ -107,7 +107,7 @@ li a {
 .actions {
   color: #fafafa;
 }
-.login input {
+.login1 input {
   background-color: #286090;
   height: 33px;
   width: 63px;
@@ -118,7 +118,7 @@ li a {
 .actions input:hover {
   opacity: 1;
 }
-.signup input{
+.signup1 input{
   height: 33px;
   width: 72px;
   background-color: #449d44;
