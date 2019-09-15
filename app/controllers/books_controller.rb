@@ -4,6 +4,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     @user = current_user
+    
   end
 
   def new
@@ -45,18 +46,19 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = User.find(@book.user_id)
-
-
+    @book_comment = BookComment.new
+    @favorite = Favorite.new
   end
 
   def destroy
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to books_path
-    #   flash[:notice] = "successfully"
-    # else
-    #   redirect_to books_pash
-    # end
+    user = User.find(book.user.id)
+    if current_user != user
+      redirect_to books_path
+    else
+      book.destroy
+      redirect_to books_path
+    end
   end
 
 

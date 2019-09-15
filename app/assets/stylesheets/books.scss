@@ -1,3 +1,93 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hr {
+  border-top: 1px solid black;
+}
+.clearfix {
+  content: "";
+  clear: both;
+  display: block;
+}
+.show-header-contents {
+  height: 60px;
+  padding-left: 15px;
+}
+.show-header-contents img {
+  float: left;
+}
+.show-header-contents a {
+  float: left;
+}
+.show-label {
+  height: 40px;
+  font-size: 20px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+.show-container p {
+  font-size: 14px;
+  border-bottom: 1px solid gray;
+  padding: 10px 15px;
+}
+.show-header-content span {
+  font-size: 25px;
+  padding-left: 15px;
+}
+.show-option {
+  height: 20px;
+}
+.comment-count {
+  float: left;
+}
+.favorite-count {
+  float: left;
+}
+.user-comment {
+
+}
+.comment-left {
+  float: left;
+}
+.comment-right {
+
+}
+.comment-option {
+  float: right;
+}
+.show-label label {
+  font-size: 20px;
+}
+.show-label span {
+  font-size: 25px;
+}
+.show-label a {
+  float: right;
+  margin-top: 5px;
+}
+.show-edit {
+  float: right;
+}
+.show-edit a {
+  margin-right: 15px;
+}
+
+.show-edit a:hover {
+  background-color: black;
+  color: #fafafa;
+}
+.comment-form {
+  width: 100%;
+}
+.new_book_comment {
+  height: 60px;
+}
+.comment-btn {
+  margin-top: 7px;
+}
+.comment-btn:hover {
+  margin-top: 10px;
+}
+.fav-icon {
+  font-size: 20px;
+}
