@@ -12,7 +12,27 @@
     <% end %>
   <% end %>
   <h2>User info</h2>
-  <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+  <div class="profile-top">
+    <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+    <div class="user-follow">
+      <ul>
+        <li class="followers">
+          <%= link_to followers_path(user.id) do %>
+            <button type="button" class="btn btn-primary">
+              <strong><%= user.followers.count %></strong> followers
+            </button>
+          <% end %>
+        </li><br>
+        <li class="followings">
+          <%= link_to followings_path(user.id) do %>
+            <button type="button" class="btn btn-info">
+              <strong><%= user.followings.count %></strong> following
+            </button>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
   <table>
     <tbody>
       <tr class="profile-table">
