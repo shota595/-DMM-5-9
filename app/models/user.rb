@@ -19,4 +19,21 @@ class User < ApplicationRecord
     follower_relationships.find_by(following_id: user.id).present?
   end
 
+  def self.search(search, way)
+    # if search
+    #   User.where(['name LIKE ?', "%#{search}%"])
+    # else
+    #   User.all
+    # end
+    return self.all unless search
+    if way == "1"
+      self.where(['name LIKE ?', "#{search}%"])
+    elsif way == "2"
+      self.where(['name LIKE ?', "%#{search}"])
+    elsif way == "3"
+      self.where(['name LIKE ?', "#{search}"])
+    elsif way == "4"
+      self.where(['name LIKE ?', "%#{search}%"])
+    end
+  end
 end

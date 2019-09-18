@@ -1,0 +1,76 @@
+<%= render 'books/list', book: @book, user: @user %>
+
+<div class="col-xs-9">
+  <div class="search">
+    <p>Search</p>
+    <%= form_tag(search_path, :method => "get") do %>
+      <%= text_field_tag :search %>
+      <%= select_tag "value", options_for_select([["User", "1"],["Book", "2"]]) %>
+      <%= select_tag "searchway", options_for_select([["前方一致検索", "1"],["後方一致検索", "2"],["完全一致検索", "3"],["部分一致検索", "4"]]) %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <h2>Serch Result</h2>
+  <% if @value == "1" %>
+  <table>
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", users_path(user.id) %></td>
+          <td>
+            <% if current_user != user %>
+              <% if user.followed_by?(current_user) %>
+                <%= link_to user_relationships_path(user), method: :delete do %>
+                  <button type="button" class="btn btn-secondary">
+                    unfollow
+                  </button>
+                <% end %>
+              <% else %>
+                <%= link_to user_relationships_path(user), method: :post do %>
+                  <button type="button" class="btn btn-primary">
+                    follow
+                  </button>
+                <% end %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% elsif @value == "2" %>
+  <table>
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>Name</th>
+        <th>Opinion</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= attachment_image_tag book.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
+          <td><%= link_to  book_path(book.id) do %><%= book.title %><% end %></td>
+          <td><%= book.body %></td>
+          <td><%= book.favorites.count %> いいね</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

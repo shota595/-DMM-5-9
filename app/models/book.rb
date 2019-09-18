@@ -8,4 +8,21 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(search, way)
+    # if search
+    #   User.where(['name LIKE ?', "%#{search}%"])
+    # else
+    #   User.all
+    # end
+    if way == "1"
+      self.where(['title LIKE ?', "#{search}%"])
+    elsif way == "2"
+      self.where(['title LIKE ?', "%#{search}"])
+    elsif way == "3"
+      self.where(['title LIKE ?', "#{search}"])
+    elsif way == "4"
+      self.where(['title LIKE ?', "%#{search}%"])
+    end
+  end
 end

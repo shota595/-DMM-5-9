@@ -43,7 +43,19 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     # @users = @user.followers
+  end
 
+  def search
+    @value = params[:value]
+    @user = current_user
+    if @value == "1"
+      @users = User.search(params[:search], params[:searchway])
+      @follow = Relationship.new
+    elsif @value == "2"
+      @books = Book.search(params[:search], params[:searchway])
+    end
+    @book = Book.new
+    # @books = Book.search(params[:search])
   end
 
   private
