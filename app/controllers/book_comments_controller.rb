@@ -1,16 +1,16 @@
 class BookCommentsController < ApplicationController
   before_action :authenticate_user!
   def create
-    book = Book.find(params[:book_id])
-    comment = current_user.book_comments.new(book_comment_params)
+    book                      = Book.find(params[:book_id])
+    comment               = current_user.book_comments.new(book_comment_params)
     comment.book_id = book.id
     comment.save
     redirect_to book_path(book.id)
   end
 
   def destroy
-    book = Book.find(params[:book_id])
-    comment = book.book_comments.find_by(params[:id])
+    book          = Book.find(params[:book_id])
+    comment   = book.book_comments.find_by(params[:id])
     comment.destroy
     redirect_to book_path(book.id)
   end

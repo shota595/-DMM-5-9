@@ -1,8 +1,8 @@
 class FavoritesController < ApplicationController
 
   def index
-    @book =Book.find(params[:id])
-    @user = current_user
+    @book   =  Book.find(params[:id])
+    @user    =  current_user
   end
 
   def create
@@ -13,10 +13,15 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:book_id])
-    favorite = current_user.favorites.find_by(book_id: book.id)
+    book       = Book.find(params[:book_id])
+    favorite   = current_user.favorites.find_by(book_id: book.id)
     favorite.destroy
     redirect_to book_path(book)
+  end
+
+  private
+  def set_variables
+    @id_name = "favorite-link-#{@book.id}"
   end
 
 end

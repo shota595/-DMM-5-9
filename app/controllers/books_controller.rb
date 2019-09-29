@@ -2,9 +2,9 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   def index
     @books = Book.all
-    @book = Book.new
-    @user = current_user
-    
+    @book  = Book.new
+    @user   = current_user
+
   end
 
   def new
@@ -12,12 +12,14 @@ class BooksController < ApplicationController
   end
 
   def create
-    @books = Book.all
-    @book = Book.new(book_params)
+    @books            = Book.all
+    @book              = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to book_path(@book.id)
-      flash[:notice] = "successfully"
+      @user = User.find(current_user.id)
+      # redirect_to book_path(@book.id)
+      render 'users/part_show'
+      # flash[:notice] = "successfully"
     else
       @user = User.find(current_user.id)
       render :index
@@ -25,8 +27,8 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
-    @user = User.find(@book.user.id)
+    @book  = Book.find(params[:id])
+    @user   = User.find(@book.user.id)
     if current_user != @user
       redirect_to books_path
     end
@@ -44,15 +46,15 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
-    @user = User.find(@book.user_id)
+    @book                 = Book.find(params[:book_id])
+    @user                   = User.find(@book.user_id)
     @book_comment = BookComment.new
     @favorite = Favorite.new
   end
 
   def destroy
     book = Book.find(params[:id])
-    user = User.find(book.user.id)
+    user  = User.find(book.user.id)
     if current_user != user
       redirect_to books_path
     else
