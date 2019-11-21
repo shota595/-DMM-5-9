@@ -74,3 +74,7 @@ gem "refile-mini_magick"
 gem "jquery-rails"
 gem 'font-awesome-rails'
 gem 'cocoon'
+
+group :production do
+  gem 'mysql2'
+end
